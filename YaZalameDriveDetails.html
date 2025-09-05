@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Ya Zalame Drive!</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./tailwindconfig.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
+    <div
+      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:bg-black"
+    >
+      <img
+        src="./images/header-bg-color.png"
+        alt=""
+        class="w-full dark:bg-black"
+      />
+    </div>
+    <special-header></special-header>
+    <div
+      class="text-center mx-auto flex flex-col items-center justify-center gap-4"
+    >
+      <img src="/images/phone2.png" alt="Your image" class="mt-20 max-w-3xl" />
+      <figcaption class="absolute mt-170 text-4xl">
+        "Ya Zalame Drive!"
+      </figcaption>
+      <figcaption class="absolute mt-190">
+        <i>Unity Game (available on the Play Store soon)</i>
+      </figcaption>
+    </div>
+    <div class="container mx-auto max-w-7xl px-4 py-8">
+      <div class="relative w-full max-w-lg mx-auto">
+        <div class="relative w-full">
+          <ul
+            class="relative flex flex-wrap p-1.5 list-none rounded-md bg-slate-100"
+            data-tabs="tabs"
+            role="tablist"
+          >
+            <li class="flex-auto text-center">
+              <a
+                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-white"
+                data-tab-target=""
+                role="tab"
+                aria-selected="true"
+                aria-controls="about"
+              >
+                <span class="ml-1">About</span>
+              </a>
+            </li>
+            <li class="flex-auto text-center">
+              <a
+                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target=""
+                role="tab"
+                aria-selected="false"
+                aria-controls="features"
+              >
+                <span class="ml-1">Features</span>
+              </a>
+            </li>
+            <li class="flex-auto text-center">
+              <a
+                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target=""
+                role="tab"
+                aria-selected="false"
+                aria-controls="screenshots"
+              >
+                <span class="ml-1">Screenshots</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div data-tab-content="" class="p-5">
+          <div class="block opacity-100" id="about" role="tabpanel">
+            <div class="grid grid-cols-2 sm:grid-cols-2 gap-4">
+              <div>
+                <img
+                  class="object-cover rounded-lg border-4 border-blue-500/50"
+                  src="images/GameLogo.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Game's logo</i>
+                </figcaption>
+              </div>
+              <div>
+                <p>
+                  This game is an endless car game where you try to avoid all
+                  obstacles that are coming your way. You are driving like
+                  nobody's watching, speeding in the dangerous Lebanese roads.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden opacity-0" id="features" role="tabpanel">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div>
+                <img
+                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/levels.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Multiple levels</i>
+                </figcaption>
+              </div>
+              <div>
+                <img
+                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/achievement.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Achievements</i>
+                </figcaption>
+              </div>
+              <div>
+                <img
+                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/radio.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Radio music (not copyrighted)</i>
+                </figcaption>
+              </div>
+              <div>
+                <img
+                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/shop.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i
+                    >Car shop. Players can collect and spend coins to buy
+                    cars</i
+                  >
+                </figcaption>
+              </div>
+              <div>
+                <img
+                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/scorecard.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Tracks highscore and last score</i>
+                </figcaption>
+              </div>
+              <div>
+                <img
+                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
+                  src="/images/ads.png"
+                  alt="image-photo"
+                />
+                <figcaption class="text-center text-sm mt-2">
+                  <i>Google Admob and Unity ads are implemented</i>
+                </figcaption>
+              </div>
+            </div>
+          </div>
+          <div class="hidden opacity-0" id="screenshots" role="tabpanel">
+            <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+              <div class="mx-auto flex flex-col items-center justify-center">
+                <figcaption class="absolute text-center mb-113">
+                  <i>Main Menu screen</i>
+                </figcaption>
+                <img
+                  class="w-full h-full object-cover rounded-lg"
+                  src="images/mainmenu.png"
+                  alt="image-photo"
+                />
+              </div>
+              <div class="mx-auto flex flex-col items-center justify-center">
+                <figcaption class="absolute text-center mb-113">
+                  <i>Gameplay</i>
+                </figcaption>
+                <img
+                  class="w-full h-full object-cover rounded-lg"
+                  src="images/gameplay.png"
+                  alt="image-photo"
+                />
+              </div>
+              <div class="mx-auto flex flex-col items-center justify-center">
+                <figcaption class="absolute text-center mb-113">
+                  <i>Game Over Screen</i>
+                </figcaption>
+                <img
+                  class="w-full h-full object-cover rounded-lg"
+                  src="images/gameover.png"
+                  alt="image-photo"
+                />
+              </div>
+              <div class="mx-auto flex flex-col items-center justify-center">
+                <figcaption class="absolute text-center mb-113">
+                  <i>Car Shop</i>
+                </figcaption>
+                <img
+                  class="w-full h-full object-cover rounded-lg"
+                  src="images/Gameshop.png"
+                  alt="image-photo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <special-footer></special-footer>
+
+    <script src="./headerFooterManager.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all tab links and tab content containers
+        const tabLinks = document.querySelectorAll('[role="tab"]');
+        const tabContents = document.querySelectorAll('[role="tabpanel"]');
+
+        // Add a click event listener to each tab link
+        tabLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            // Prevent default link behavior
+            event.preventDefault();
+
+            // Get the ID of the content to show from the 'aria-controls' attribute
+            const targetId = event.currentTarget.getAttribute("aria-controls");
+
+            // Remove 'bg-white' and set 'aria-selected' to false for all links
+            tabLinks.forEach((item) => {
+              item.classList.remove("bg-white");
+              item.setAttribute("aria-selected", "false");
+            });
+
+            // Hide all tab content containers
+            tabContents.forEach((content) => {
+              content.classList.add("hidden", "opacity-0");
+              content.classList.remove("block");
+            });
+
+            // Add 'bg-white' and set 'aria-selected' to true for the clicked link
+            event.currentTarget.classList.add("bg-white");
+            event.currentTarget.setAttribute("aria-selected", "true");
+
+            // Show the targeted content container
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.remove("hidden", "opacity-0");
+              targetContent.classList.add("block", "opacity-100");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
