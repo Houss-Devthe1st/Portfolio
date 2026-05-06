@@ -11,7 +11,7 @@ class SpecialHeader extends HTMLElement {
     </div>
 
     <nav
-      class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+      class="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
     >
       <a href="./index.html">
       <img
@@ -29,13 +29,17 @@ class SpecialHeader extends HTMLElement {
         <li><a href="./index.html#contact">Contact Me</a></li>
       </ul>
       <div class="flex items-center gap-4">
-        <!-- <button id="dark-mode-toggle">
-          <img
-            id="dark-mode-icon"
-            src="./images/moon_icon.png"
-            alt="Toggle Dark Mode"
-            class="w-6"
-          />
+        <!-- <button id="dark-mode-toggle" class="cursor-pointer flex items-center">
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
         </button> -->
         <a
           class="hidden lg:flex items-center gap-3 px-10 py-2.5 bg-white border border-gray-500 rounded-full ml-4 font-outfit"
@@ -92,7 +96,7 @@ class SpecialFooter extends HTMLElement {
         <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
           <li><a href="https://instagram.com/houssam_saidi_">Instagram</a></li>
           <li>
-            <a href="www.linkedin.com/in/houssam-saidi-385150165">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/houssam-saidi-385150165">LinkedIn</a>
           </li>
           <li>
             <a href="https://github.com/Houss-Devthe1st">GitHub</a>
@@ -105,3 +109,60 @@ class SpecialFooter extends HTMLElement {
 
 customElements.define('special-header', SpecialHeader)
 customElements.define('special-footer', SpecialFooter)
+
+function openMenu() {
+  const sideMenu = document.querySelector('#sideMenu');
+  if (sideMenu) sideMenu.style.transform = 'translateX(-16rem)';
+}
+
+function closeMenu() {
+  const sideMenu = document.querySelector('#sideMenu');
+  if (sideMenu) sideMenu.style.transform = 'translateX(16rem)';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleButton = document.getElementById('dark-mode-toggle');
+  if (toggleButton) {
+    const iconSun  = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    toggleButton.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      } else {
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      }
+    });
+  }
+
+  const tabLinks    = document.querySelectorAll('[role="tab"]');
+  const tabContents = document.querySelectorAll('[role="tabpanel"]');
+  if (tabLinks.length === 0) return;
+
+  tabLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute('aria-controls');
+
+      tabLinks.forEach((item) => {
+        item.classList.remove('bg-white');
+        item.setAttribute('aria-selected', 'false');
+      });
+      tabContents.forEach((content) => {
+        content.classList.add('hidden', 'opacity-0');
+        content.classList.remove('block');
+      });
+
+      event.currentTarget.classList.add('bg-white');
+      event.currentTarget.setAttribute('aria-selected', 'true');
+
+      const targetContent = document.getElementById(targetId);
+      if (targetContent) {
+        targetContent.classList.remove('hidden', 'opacity-0');
+        targetContent.classList.add('block', 'opacity-100');
+      }
+    });
+  });
+});

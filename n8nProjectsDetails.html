@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - n8n projects</title>
+    <link rel="icon" href="./images/Logo-H-1.png" type="image/png" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="./tailwindconfig.js"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-darkTheme: #11001f;
+        --font-family-outfit: "Outfit", sans-serif;
+        --font-family-ubuntu: "Ubuntu", sans-serif;
+        --animate-spin-slow: spin 6s linear infinite;
+        --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,50 +26,6 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <!------------------------------------------->
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      div.gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      div.gallery-item {
-        margin: 5px;
-        border: 1px solid #ccc;
-        width: 22%;
-      }
-
-      div.gallery-item:hover {
-        border: 1px solid #777;
-      }
-
-      div.gallery-item img {
-        width: 100%;
-        height: auto;
-      }
-
-      div.gallery-item div.desc {
-        padding: 15px;
-        text-align: center;
-      }
-
-      @media only screen and (max-width: 700px) {
-        div.gallery-item {
-          width: 45%;
-        }
-      }
-
-      @media only screen and (max-width: 500px) {
-        div.gallery-item {
-          width: 100%;
-        }
-      }
-    </style>
   </head>
   <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
     <div
@@ -73,178 +38,332 @@
       />
     </div>
     <special-header></special-header>
-    <div
-      class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
-    >
-      <img
-        src="./images/n8nBackground.jpg"
-        alt="n8n background"
-        class="w-150 rounded-3xl mt-20 2xl:w-250"
-      />
-      <figcaption class="text-sm">
-        <i>
-          <button
-            data-popover-target="popover-description"
-            data-popover-placement="bottom-end"
-            type="button"
-          >
-            <svg
-              class="w-4 h-4 ms-2 text-gray-400 hover:text-gray-500"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                clip-rule="evenodd"
-              ></path></svg
-            ><span class="sr-only">Show information</span></button
-          >n8n is downloaded Locally in my PC using docker</i
+
+    <!-- Hero: compact 2-col layout -->
+    <div class="w-full px-[8%] pt-28 pb-12">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <figure
+          class="w-full lg:max-w-[480px] xl:max-w-[540px] shrink-0 overflow-hidden"
         >
-      </figcaption>
-      <div
-        data-popover
-        id="popover-description"
-        role="tooltip"
-        class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
-      >
-        <div class="p-3 space-y-2">
-          <h3 class="font-semibold text-gray-900 dark:text-white">
-            What is n8n?
-          </h3>
-          <p>
-            Build with the precision of code or the speed of drag-n-drop. Host
-            with on-prem control or in-the-cloud convenience. n8n gives you more
-            freedom to implement multi-step AI agents and integrate apps than
-            any other tool.
+          <img
+            src="./images/n8nBackground.jpg"
+            alt="n8n background"
+            class="w-full rounded-3xl shadow-lg"
+          />
+          <figcaption
+            class="text-sm mt-2 text-center text-gray-500 dark:text-gray-400"
+          >
+            <i>
+              <button
+                data-popover-target="popover-description"
+                data-popover-placement="bottom-end"
+                type="button"
+                class="inline-flex items-center gap-1"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-400 hover:text-gray-500"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                n8n is running locally via Docker
+              </button>
+            </i>
+          </figcaption>
+          <div
+            data-popover
+            id="popover-description"
+            role="tooltip"
+            class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
+          >
+            <div class="p-3 space-y-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                What is n8n?
+              </h3>
+              <p>
+                Build with the precision of code or the speed of drag-n-drop.
+                Host with on-prem control or in-the-cloud convenience. n8n gives
+                you more freedom to implement multi-step AI agents and integrate
+                apps than any other tool.
+              </p>
+              <h3 class="font-semibold text-gray-900 dark:text-white">Tools</h3>
+              <p>Plug AI into your own data & over 500 integrations</p>
+              <a
+                href="https://n8n.io/"
+                class="flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              >
+                Read more
+                <svg
+                  class="w-2 h-2 ms-1.5 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 9 4-4-4-4"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div data-popper-arrow></div>
+          </div>
+        </figure>
+
+        <div class="flex-1">
+          <h1
+            class="text-3xl sm:text-4xl font-bold font-ubuntu mb-4 dark:text-gray-100"
+          >
+            AI Agents &amp; Automation
+          </h1>
+          <p class="text-gray-600 dark:text-gray-300 leading-7 mb-4">
+            I'm an n8n intermediate user, eager to build more complex workflows.
+            I have experience with core nodes like HTTP requests, data
+            manipulation, and connecting common applications. I'm now exploring
+            advanced features to automate more of my processes. Additionally, I
+            have a strong background in Python and machine learning, which I
+            leverage to integrate AI capabilities into custom solutions
+            (websites or applications).
           </p>
-          <h3 class="font-semibold text-gray-900 dark:text-white">Tools</h3>
-          <p>Plug AI into your own data & over 500 integrations</p>
-          <a
-            href="https://n8n.io/"
-            class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700 hover:underline"
-            >Read more
-            <svg
-              class="w-2 h-2 ms-1.5 rtl:rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
+          <div class="flex flex-wrap gap-2 text-xs font-outfit">
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >n8n</span
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 9 4-4-4-4"
-              /></svg
-          ></a>
-        </div>
-        <div data-popper-arrow></div>
-      </div>
-
-      <h2 class="font-semibold">
-        I'm an n8n beginner who's comfortable with the basics and eager to build
-        more complex workflows. I have experience with core nodes like HTTP
-        requests, data manipulation, and connecting with common applications.
-        I'm now ready to take on more challenging projects, integrate with a
-        wider range of APIs, and explore advanced features to automate more of
-        my processes.
-      </h2>
-    </div>
-    <div class="mt-20 2xl:-mt-16">
-      <h1 class="ml-25 mb-5">
-        <b>These are the following projects I created using n8n:</b>
-      </h1>
-    </div>
-    <div class="gallery">
-      <div class="gallery-item">
-        <img
-          src="./images/expenseTracker.jpg"
-          alt="expense tracker automation"
-          width="600"
-          height="400"
-        />
-        <div class="desc">
-          <p>
-            <b>Expense tracker:</b> using Telegram, text the AI agent your daily
-            expense and it will save it in your personal Google sheet
-          </p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="./images/sports-news.jpg"
-          alt="sports-news automation"
-          width="600"
-          height="400"
-        />
-        <div class="desc">
-          <p>
-            <b>Sports news:</b> Stay updated in your sports news with the help
-            of this AI agent. It fetches new blogs from your favorite news
-            website. Either scheduled or by manual trigger
-          </p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="./images/emailCleaners.jpg"
-          alt="email cleaner automation"
-          width="600"
-          height="400"
-        />
-        <div class="desc">
-          <p>
-            <b>Gmail Cleaner:</b> Tired of checking your Gmail inbox that gets
-            full every week? well no worries, this AI agent will categories your
-            gmails by importance based on your criteria(s)
-          </p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="./images/alfred_p_.jpg"
-          alt="AI chatbot"
-          width="600"
-          height="400"
-        />
-        <div class="desc">
-          <p>
-            <b>Alfred AI:</b> Your personal AI butler is ready to serve you. By
-            voice or text via Telegram, he can either chat with you or do daily
-            tasks (for now he can send emails and edit google sheets)
-          </p>
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >Telegram</span
+            >
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >Gmail</span
+            >
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >Google Sheets</span
+            >
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >Ollama AI</span
+            >
+            <span
+              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
+              >Docker</span
+            >
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- n8n Projects -->
+    <section class="w-full px-[8%] py-8">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="./images/n8nLogo.png" alt="" class="w-8" />
+        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
+          n8n Workflow Projects
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/expenseTracker.jpg"
+              alt="Expense tracker automation"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              Expense Tracker
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              Text your daily expenses to an AI agent via Telegram, it logs them
+              straight into your Google Sheet.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/sports-news.jpg"
+              alt="Sports news automation"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              Sports News
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              Stay updated on sports with an AI agent that fetches fresh blog
+              posts from your favourite news sources, on a schedule or on
+              demand.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/emailCleaners.jpg"
+              alt="Gmail cleaner automation"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              Gmail Cleaner
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              Automatically sorts your inbox by importance based on your
+              criteria. No more drowning in emails every week.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/alfred_p_.jpg"
+              alt="Alfred AI chatbot"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              Alfred AI
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              Your personal AI butler: Chat by voice or text via Telegram, and
+              let him send emails or update your Google Sheets.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/AI-ticketing-systems-2026.jpg"
+              alt="AI Ticketing System"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              AI Ticketing System
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              A workflow that automatically analyzes incoming customer support
+              emails or forms, categorizes them by issue type, and sends them to
+              the appropriate team member or department for faster resolution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ML Projects -->
+    <section class="w-full px-[8%] py-8 mb-10">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="./images/Power_BI_Logo.svg.png" alt="" class="w-8" />
+        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
+          Machine Learning Projects
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/BrainTumors.png"
+              alt="Brain tumor MRI scans"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              Tumor Detector
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              Analyzes MRI scans to identify and classify potential brain tumors
+              based on their visual characteristics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other AI Projects -->
+    <section class="w-full px-[8%] py-8 mb-10">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="./images/artificial-intelligence.png" alt="" class="w-8" />
+        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
+          AI Projects
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div
+          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./images/rag.jpg"
+              alt="Retrieval-Augmented Generation"
+              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4">
+            <h3
+              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
+            >
+              FileFlow: RAG System
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
+              A Retrieval-Augmented Generation system that combines a vector
+              database with a large language model to answer questions based on
+              uploaded files (PDFs, DOCs, etc.).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <special-footer></special-footer>
-
     <script src="./headerFooterManager.js"></script>
-    <script>
-      const flipCard = document.getElementById("flipCard");
-      const flipCard1 = document.getElementById("flipCard1");
-      const flipCard2 = document.getElementById("flipCard2");
-      const flipCard3 = document.getElementById("flipCard3");
-
-      flipCard.addEventListener("click", () => {
-        flipCard.classList.toggle("flipped");
-      });
-      flipCard1.addEventListener("click", () => {
-        flipCard1.classList.toggle("flipped");
-      });
-      flipCard2.addEventListener("click", () => {
-        flipCard2.classList.toggle("flipped");
-      });
-      flipCard3.addEventListener("click", () => {
-        flipCard3.classList.toggle("flipped");
-      });
-    </script>
   </body>
 </html>

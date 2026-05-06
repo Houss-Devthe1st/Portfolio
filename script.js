@@ -1,12 +1,8 @@
 const sideMenu = document.querySelector('#sideMenu');
 const navBar = document.querySelector("nav");
 const navLinks = document.querySelector("nav ul");
-
-const toggleButton = document.getElementById('dark-mode-toggle');
 const htmlElement = document.documentElement;
-const iconElement = document.getElementById('dark-mode-icon');
-
-
+const toggleButton = document.getElementById('dark-mode-toggle');
 
 function openMenu(){
     sideMenu.style.transform = 'translateX(-16rem)'
@@ -26,16 +22,17 @@ window.addEventListener('scroll', () =>{
     }
 })
 
-toggleButton.addEventListener('click', () => {
-  // Toggle the 'dark' class on the html element
-  htmlElement.classList.toggle('dark');
-  
-  // Check if the 'dark' class is present and update the icon
-  if (htmlElement.classList.contains('dark')) {
-    iconElement.src = './images/sun_icon.png';
-    iconElement.alt = 'Toggle Light Mode';
-  } else {
-    iconElement.src = './images/moon_icon.png';
-    iconElement.alt = 'Toggle Dark Mode';
-  }
-});
+if (toggleButton) {
+  const iconSun  = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  toggleButton.addEventListener('click', () => {
+    htmlElement.classList.toggle('dark');
+    if (htmlElement.classList.contains('dark')) {
+      iconSun.classList.remove('hidden');
+      iconMoon.classList.add('hidden');
+    } else {
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+    }
+  });
+}
