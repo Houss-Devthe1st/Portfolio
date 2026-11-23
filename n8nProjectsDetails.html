@@ -1,369 +1,184 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - n8n projects</title>
+    <title>AI agents &amp; automation | Houssam Saidi</title>
+    <meta
+      name="description"
+      content="n8n automation workflows, machine learning and AI projects by Houssam Saidi."
+    />
     <link rel="icon" href="./images/letter-h.png" type="image/png" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-darkTheme: #11001f;
-        --font-family-outfit: "Outfit", sans-serif;
-        --font-family-ubuntu: "Ubuntu", sans-serif;
-        --animate-spin-slow: spin 6s linear infinite;
-        --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    </style>
+    <script src="./js/theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+      @theme inline {
+        --color-paper: var(--paper);
+        --color-raised: var(--paper-raised);
+        --color-ink: var(--ink);
+        --color-ink-soft: var(--ink-soft);
+        --color-rule: var(--rule);
+        --color-accent: var(--accent);
+        --font-sans: var(--ff-body);
+        --font-display: var(--ff-display);
+        --font-note: var(--ff-note);
+      }
+    </style>
   </head>
-  <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
-    <div
-      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:bg-black"
-    >
-      <img
-        src="./images/header-bg-color.png"
-        alt=""
-        class="w-full dark:bg-black"
-      />
-    </div>
-    <special-header></special-header>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <site-header></site-header>
 
-    <!-- Hero: compact 2-col layout -->
-    <div class="w-full px-[8%] pt-28 pb-12">
-      <div class="flex flex-col lg:flex-row items-center gap-10">
-        <figure
-          class="w-full lg:max-w-[480px] xl:max-w-[540px] shrink-0 overflow-hidden"
-        >
-          <img
-            src="./images/n8nBackground.jpg"
-            alt="n8n background"
-            class="w-full rounded-3xl shadow-lg"
-          />
-          <figcaption
-            class="text-sm mt-2 text-center text-gray-500 dark:text-gray-400"
-          >
-            <i>
-              <button
-                data-popover-target="popover-description"
-                data-popover-placement="bottom-end"
-                type="button"
-                class="inline-flex items-center gap-1"
-              >
-                <svg
-                  class="w-4 h-4 text-gray-400 hover:text-gray-500"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                n8n is running locally via Docker
-              </button>
-            </i>
-          </figcaption>
-          <div
-            data-popover
-            id="popover-description"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
-          >
-            <div class="p-3 space-y-2">
-              <h3 class="font-semibold text-gray-900 dark:text-white">
-                What is n8n?
-              </h3>
-              <p>
-                Build with the precision of code or the speed of drag-n-drop.
-                Host with on-prem control or in-the-cloud convenience. n8n gives
-                you more freedom to implement multi-step AI agents and integrate
-                apps than any other tool.
-              </p>
-              <h3 class="font-semibold text-gray-900 dark:text-white">Tools</h3>
-              <p>Plug AI into your own data & over 500 integrations</p>
-              <a
-                href="https://n8n.io/"
-                class="flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Read more
-                <svg
-                  class="w-2 h-2 ms-1.5 rtl:rotate-180"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div data-popper-arrow></div>
-          </div>
-        </figure>
+    <main id="main" class="sheet">
+      <nav class="crumbs pt-8" aria-label="Breadcrumb">
+        <a class="link" href="./index.html#work">Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">AI agents &amp; automation</span>
+      </nav>
 
-        <div class="flex-1">
-          <h1
-            class="text-3xl sm:text-4xl font-bold font-ubuntu mb-4 dark:text-gray-100"
-          >
-            AI Agents &amp; Automation
-          </h1>
-          <p class="text-gray-600 dark:text-gray-300 leading-7 mb-4">
-            I'm an n8n intermediate user, eager to build more complex workflows.
-            I have experience with core nodes like HTTP requests, data
-            manipulation, and connecting common applications. I'm now exploring
-            advanced features to automate more of my processes. Additionally, I
-            have a strong background in Python and machine learning, which I
-            leverage to integrate AI capabilities into custom solutions
-            (websites or applications).
+      <header class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-14">
+        <div>
+          <h1 class="h-display">AI agents &amp; automation</h1>
+          <p class="lede mt-6">
+            n8n automation workflows, a machine learning model and a
+            retrieval-augmented generation (RAG) system.
           </p>
-          <div class="flex flex-wrap gap-2 text-xs font-outfit">
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >n8n</span
-            >
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >Telegram</span
-            >
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >Gmail</span
-            >
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >Google Sheets</span
-            >
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >Ollama AI</span
-            >
-            <span
-              class="px-3 py-1 bg-[#fcf4ff] border border-purple-200 rounded-full text-purple-700"
-              >Docker</span
-            >
-          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- n8n Projects -->
-    <section class="w-full px-[8%] py-8">
-      <div class="flex items-center gap-3 mb-6">
-        <img src="./images/n8nLogo.png" alt="" class="w-8" />
-        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
-          n8n Workflow Projects
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/expenseTracker.jpg"
-              alt="Expense tracker automation"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+        <dl class="title-block m-0">
+          <div>
+            <dt class="tb-label">Type</dt>
+            <dd class="m-0">Workflows, machine learning and AI</dd>
           </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              Expense Tracker
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              Text your daily expenses to an AI agent via Telegram, it logs them
-              straight into your Google Sheet.
+          <div>
+            <dt class="tb-label">Built with</dt>
+            <dd class="m-0">
+              <ul class="tag-list">
+                <li class="tag">n8n</li>
+                <li class="tag">Telegram</li>
+                <li class="tag">Gmail</li>
+                <li class="tag">Google Sheets</li>
+                <li class="tag">Ollama AI</li>
+                <li class="tag">Docker</li>
+                <li class="tag">Python</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt class="tb-label">Setup</dt>
+            <dd class="m-0">n8n runs locally in Docker</dd>
+          </div>
+        </dl>
+      </header>
+
+      <div class="grid gap-10 pb-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start">
+        <figure class="m-0">
+          <div class="frame frame-marked">
+            <img src="./images/n8nBackground.jpg" alt="n8n banner reading: Automate without limits" />
+          </div>
+          <figcaption class="caption"><b>Fig. 1</b>n8n, the automation platform behind these workflows</figcaption>
+        </figure>
+        <div class="grid gap-6">
+          <div class="body-copy">
+            <p>
+              I'm an intermediate n8n user, building more complex workflows
+              over time. I work with core nodes like HTTP requests and data
+              transformation, connect common apps, and I'm now exploring
+              advanced features to automate more of my processes.
+            </p>
+            <p>
+              I also have a strong background in Python and machine learning,
+              which I use to add AI features to custom websites and
+              applications.
             </p>
           </div>
-        </div>
-
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/sports-news.jpg"
-              alt="Sports news automation"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              Sports News
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              Stay updated on sports with an AI agent that fetches fresh blog
-              posts from your favourite news sources, on a schedule or on
-              demand.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/emailCleaners.jpg"
-              alt="Gmail cleaner automation"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              Gmail Cleaner
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              Automatically sorts your inbox by importance based on your
-              criteria. No more drowning in emails every week.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/alfred_p_.jpg"
-              alt="Alfred AI chatbot"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              Alfred AI
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              Your personal AI butler: Chat by voice or text via Telegram, and
-              let him send emails or update your Google Sheets.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/AI-ticketing-systems-2026.jpg"
-              alt="AI Ticketing System"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              AI Ticketing System
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              A workflow that automatically analyzes incoming customer support
-              emails or forms, categorizes them by issue type, and sends them to
-              the appropriate team member or department for faster resolution.
-            </p>
-          </div>
+          <details class="disclosure">
+            <summary>What is n8n?</summary>
+            <div class="disclosure-body grid gap-3">
+              <p class="m-0">
+                n8n is a workflow automation tool. You can build workflows with
+                code or by dragging and dropping nodes, and host them on your
+                own server or in the cloud. It's built for multi-step AI agents
+                and connects AI to your own data and over 500 integrations.
+              </p>
+              <a class="link w-fit font-semibold text-ink" href="https://n8n.io/" target="_blank" rel="noopener">Read more on n8n.io</a>
+            </div>
+          </details>
         </div>
       </div>
-    </section>
 
-    <!-- ML Projects -->
-    <section class="w-full px-[8%] py-8 mb-10">
-      <div class="flex items-center gap-3 mb-6">
-        <img src="./images/Power_BI_Logo.svg.png" alt="" class="w-8" />
-        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
-          Machine Learning Projects
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/BrainTumors.png"
-              alt="Brain tumor MRI scans"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              Tumor Detector
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              Analyzes MRI scans to identify and classify potential brain tumors
-              based on their visual characteristics.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Project groups: add a new <section> like these for each new type. -->
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">n8n workflows</h2>
+          <p class="lede">AI agents and automations that connect everyday apps.</p>
+        </header>
+        <ul class="clean-list grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="sub-card">
+            <div class="frame"><img src="./images/expenseTracker.jpg" alt="Expense tracker illustration" loading="lazy" /></div>
+            <h3 class="h-item">Expense tracker</h3>
+            <p class="muted m-0">Text your daily expenses to an AI agent on Telegram, and it logs them straight into your Google Sheet.</p>
+          </li>
+          <li class="sub-card">
+            <div class="frame"><img src="./images/sports-news.jpg" alt="Sports news illustration" loading="lazy" /></div>
+            <h3 class="h-item">Sports news</h3>
+            <p class="muted m-0">An AI agent that fetches fresh posts from your favorite sports news sources, on a schedule or on demand.</p>
+          </li>
+          <li class="sub-card">
+            <div class="frame"><img src="./images/emailCleaners.jpg" alt="Email inbox illustration" loading="lazy" /></div>
+            <h3 class="h-item">Gmail cleaner</h3>
+            <p class="muted m-0">Sorts your inbox by importance using your own criteria, so emails don't pile up every week.</p>
+          </li>
+          <li class="sub-card">
+            <div class="frame"><img src="./images/alfred_p_.jpg" alt="Alfred AI illustration" loading="lazy" /></div>
+            <h3 class="h-item">Alfred AI</h3>
+            <p class="muted m-0">Your personal AI butler. Chat with him by voice or text on Telegram, and he sends emails or updates your Google Sheets.</p>
+          </li>
+          <li class="sub-card">
+            <div class="frame"><img src="./images/AI-ticketing-systems-2026.jpg" alt="Support ticketing illustration" loading="lazy" /></div>
+            <h3 class="h-item">AI ticketing system</h3>
+            <p class="muted m-0">Reads incoming support emails and forms, sorts them by issue type and routes each one to the right person or team for a faster fix.</p>
+          </li>
+        </ul>
+      </section>
 
-    <!-- Other AI Projects -->
-    <section class="w-full px-[8%] py-8 mb-10">
-      <div class="flex items-center gap-3 mb-6">
-        <img src="./images/artificial-intelligence.png" alt="" class="w-8" />
-        <h2 class="text-2xl font-semibold font-ubuntu dark:text-gray-100">
-          AI Projects
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div
-          class="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-[4px_4px_0_#000] hover:-translate-y-1 duration-300 cursor-pointer bg-white dark:bg-gray-800"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./images/rag.jpg"
-              alt="Retrieval-Augmented Generation"
-              class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="p-4">
-            <h3
-              class="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-1"
-            >
-              FileFlow: RAG System
-            </h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-5">
-              A Retrieval-Augmented Generation system that combines a vector
-              database with a large language model to answer questions based on
-              uploaded files (PDFs, DOCs, etc.).
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Machine learning</h2>
+          <p class="lede">A model that recognizes patterns in medical images.</p>
+        </header>
+        <ul class="clean-list grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="sub-card">
+            <div class="frame"><img src="./images/BrainTumors.png" alt="Brain MRI scans" loading="lazy" /></div>
+            <h3 class="h-item">Tumor detector</h3>
+            <p class="muted m-0">Analyzes MRI scans to identify potential brain tumors and classify them by their visual characteristics.</p>
+          </li>
+        </ul>
+      </section>
 
-    <special-footer></special-footer>
-    <script src="./headerFooterManager.js"></script>
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">AI</h2>
+          <p class="lede">Applications built around large language models.</p>
+        </header>
+        <ul class="clean-list grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="sub-card">
+            <div class="frame"><img src="./images/rag.jpg" alt="Retrieval-augmented generation diagram" loading="lazy" /></div>
+            <h3 class="h-item">FileFlow: RAG system</h3>
+            <p class="muted m-0">Combines a vector database with a large language model to answer questions about uploaded files, such as PDFs and Word documents. Visit the following link:<b><a href="https://ka.nz/ai/houssamsaidi" target="_blank" rel="noopener noreferrer"> https://ka.nz/ai/houssamsaidi</a></b></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script src="./js/site.js"></script>
   </body>
 </html>

@@ -1,0 +1,852 @@
+/*
+  Site-wide styles: theme tokens and the drafting-sheet components.
+  Tailwind utilities handle layout and spacing in the HTML; this file holds
+  everything that defines the look. Layer order keeps Tailwind utilities on top.
+*/
+@layer theme, base, components, utilities;
+
+/* ---------- Theme tokens ---------- */
+:root {
+  --paper: #f2f5f4;
+  --paper-raised: #fbfcfc;
+  --ink: #17202b;
+  --ink-soft: #4a5765;
+  --rule: #b9c6cf;
+  --grid-minor: rgb(74 144 200 / 0.09);
+  --grid-major: rgb(74 144 200 / 0.18);
+  --accent: #c2362b;
+  --accent-ink: #ffffff;
+  --logo-tile: #ffffff;
+
+  --ff-body: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --ff-display: "Barlow Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+  --ff-note: "Barlow Semi Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+
+  color-scheme: light;
+}
+
+/* Blueprint: applied when the visitor turns on dark mode (see js/theme.js). */
+.dark {
+  --paper: #0e2a47;
+  --paper-raised: #123457;
+  --ink: #eaf1f8;
+  --ink-soft: #a9bed3;
+  --rule: #36597d;
+  --grid-minor: rgb(170 205 240 / 0.06);
+  --grid-major: rgb(170 205 240 / 0.13);
+  --accent: #f4c54b;
+  --accent-ink: #0e2a47;
+  --logo-tile: #eaf1f8;
+
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid-minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      24px 24px,
+      24px 24px;
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---------- Page structure ---------- */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Let the header inside <site-header> stick to the page, not its wrapper. */
+  site-header {
+    display: contents;
+  }
+  site-footer {
+    display: block;
+  }
+
+  /* The drawing sheet: a centred column with ruled side borders. */
+  .sheet {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 40rem) {
+    .sheet {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 48rem) {
+    .sheet {
+      border-inline: 1px solid var(--rule);
+    }
+  }
+  @media (min-width: 80rem) {
+    .sheet {
+      padding-inline: 3rem;
+    }
+  }
+
+  .section {
+    border-top: 1px solid var(--rule);
+    padding-block: clamp(3.5rem, 2rem + 5vw, 6rem);
+  }
+
+  .section-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  }
+  @media (min-width: 64rem) {
+    .section-head {
+      grid-template-columns: 17rem minmax(0, 1fr);
+      align-items: baseline;
+      gap: 3rem;
+    }
+  }
+
+  /* ---------- Type ---------- */
+  .h-display {
+    margin: 0;
+    font-family: var(--ff-display);
+    font-weight: 600;
+    font-size: clamp(3.25rem, 2rem + 6vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+  }
+
+  .h-section {
+    margin: 0;
+    font-family: var(--ff-display);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 1.75rem + 2vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .h-sub {
+    margin: 0;
+    font-family: var(--ff-display);
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .h-item {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  .role {
+    margin: 0;
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+    line-height: 1.2;
+    color: var(--ink-soft);
+  }
+
+  .lede {
+    margin: 0;
+    max-width: 40rem;
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .body-copy {
+    max-width: 40rem;
+  }
+  .body-copy p {
+    margin: 0 0 1rem;
+  }
+  .body-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .muted {
+    color: var(--ink-soft);
+  }
+
+  /* Small annotation text, like the notes on a drawing. */
+  .note {
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+  }
+
+  .link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.15s;
+  }
+  .link:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  .clean-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    letter-spacing: 0.28em;
+    text-decoration: none;
+  }
+  .wordmark-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .nav-link {
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .nav-link:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .mobile-nav .nav-link {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1.125rem;
+  }
+
+  .icon-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .icon-btn:hover {
+    border-color: var(--ink);
+  }
+  .icon-btn svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  /* The toggle shows the theme you would switch to. */
+  .icon-sun {
+    display: none;
+  }
+  .dark .icon-sun {
+    display: block;
+  }
+  .dark .icon-moon {
+    display: none;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.875rem;
+    padding: 0 1.25rem;
+    border: 1.5px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+  }
+  .btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex: none;
+  }
+  .btn-primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .btn-primary:hover {
+    border-color: var(--ink);
+  }
+  .btn[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  /* ---------- Tags and status ---------- */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.05rem 0.55rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .status::before {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    flex: none;
+  }
+  .status[data-state="live"]::before {
+    background: currentColor;
+  }
+  .status[data-state="dev"]::before {
+    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  }
+
+  /* ---------- Figures ---------- */
+  .frame {
+    position: relative;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    transition: border-color 0.15s;
+  }
+  .frame > img,
+  .frame > video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Corner crop marks for the main figure on a page. */
+  .frame-marked::after {
+    --mark: var(--ink);
+    --len: 14px;
+    content: "";
+    position: absolute;
+    inset: -7px;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--mark), var(--mark)) top left / var(--len) 1px,
+      linear-gradient(var(--mark), var(--mark)) top left / 1px var(--len),
+      linear-gradient(var(--mark), var(--mark)) top right / var(--len) 1px,
+      linear-gradient(var(--mark), var(--mark)) top right / 1px var(--len),
+      linear-gradient(var(--mark), var(--mark)) bottom left / var(--len) 1px,
+      linear-gradient(var(--mark), var(--mark)) bottom left / 1px var(--len),
+      linear-gradient(var(--mark), var(--mark)) bottom right / var(--len) 1px,
+      linear-gradient(var(--mark), var(--mark)) bottom right / 1px var(--len);
+    background-repeat: no-repeat;
+  }
+
+  .caption {
+    margin-top: 0.75rem;
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .caption b {
+    font-weight: 600;
+    color: var(--ink);
+    margin-right: 0.35rem;
+  }
+
+  /* ---------- Hero portrait with leader-line callouts ---------- */
+  .portrait {
+    position: relative;
+    width: 100%;
+    max-width: 32rem;
+    margin: 0;
+    container-type: inline-size;
+  }
+  .portrait .frame > img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 22%;
+  }
+  .callouts {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+  }
+  .callouts li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.35;
+  }
+  .callouts li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 1.1rem;
+    height: 1.5px;
+    background: var(--accent);
+  }
+
+  @container (min-width: 27rem) {
+    .portrait .frame {
+      width: 60%;
+    }
+    .callouts {
+      margin: 0;
+    }
+    .callouts li {
+      position: absolute;
+      top: var(--y);
+      left: calc(60% - 3.5rem);
+      width: calc(40% + 3.5rem);
+      padding-left: 6.5rem;
+    }
+    .callouts li::before {
+      width: 6rem;
+      transform-origin: left center;
+    }
+    .callouts li::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: calc(0.68em - 4px);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 2px var(--paper-raised);
+    }
+  }
+
+  /* The page's one orchestrated moment: callouts draw in on load. */
+  @media (prefers-reduced-motion: no-preference) {
+    .callouts li::after {
+      animation: callout-pop 0.3s ease-out both;
+      animation-delay: calc(0.3s + var(--i) * 0.18s);
+    }
+    .callouts li::before {
+      animation: callout-draw 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: calc(0.4s + var(--i) * 0.18s);
+    }
+    .callouts li span {
+      display: inline-block;
+      animation: callout-label 0.4s ease-out both;
+      animation-delay: calc(0.75s + var(--i) * 0.18s);
+    }
+  }
+  @keyframes callout-draw {
+    from {
+      transform: scaleX(0);
+    }
+  }
+  @keyframes callout-pop {
+    from {
+      transform: scale(0);
+    }
+  }
+  @keyframes callout-label {
+    from {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+  }
+
+  /* ---------- Ruled grids and tables ---------- */
+  /* Cells share single hairlines, like a table on a drawing. */
+  .ruled-grid {
+    display: grid;
+    gap: 1px;
+    border: 1px solid var(--rule);
+    background: var(--rule);
+  }
+  .ruled-grid > * {
+    min-width: 0;
+    padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    background: var(--paper);
+  }
+
+  /* Title block: the bordered information panel of a drawing. */
+  .title-block {
+    display: grid;
+    gap: 1px;
+    border: 1.5px solid var(--ink);
+    background: var(--ink);
+  }
+  .title-block > * {
+    min-width: 0;
+    padding: 0.8rem 1rem;
+    background: var(--paper);
+  }
+  .tb-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+  }
+
+  /* Parts list for tools. */
+  .table-scroll {
+    overflow-x: auto;
+  }
+  .bom {
+    width: 100%;
+    min-width: 30rem;
+    border-collapse: collapse;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+  }
+  .bom th,
+  .bom td {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--rule);
+    text-align: left;
+    vertical-align: middle;
+  }
+  .bom thead th {
+    border-bottom: 1.5px solid var(--ink);
+    background: var(--paper-raised);
+    font-family: var(--ff-note);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+  }
+  .bom td:first-child,
+  .bom th:first-child {
+    width: 3.5rem;
+    text-align: center;
+  }
+  .bom td:first-child {
+    font-family: var(--ff-note);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+  .bom td:last-child {
+    color: var(--ink-soft);
+  }
+
+  .logo-tile {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--rule);
+    background: var(--logo-tile);
+  }
+  .logo-tile img {
+    max-width: 1.35rem;
+    max-height: 1.35rem;
+  }
+
+  .line-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--ink);
+  }
+
+  /* ---------- Work grid ---------- */
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .filter button {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .filter button:hover {
+    border-color: var(--ink);
+  }
+  .filter button[aria-pressed="true"] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .filter .count {
+    font-family: var(--ff-note);
+    font-size: 0.8125rem;
+    opacity: 0.7;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .project-card .frame > img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .project-card:hover .frame,
+  .project-card:focus-visible .frame {
+    border-color: var(--accent);
+  }
+  .project-card:hover .project-title {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.18em;
+  }
+
+  /* Dashed outline: the drafting convention for parts not yet built. */
+  .placeholder-card {
+    display: grid;
+    align-content: center;
+    gap: 0.5rem;
+    min-height: 14rem;
+    padding: 1.75rem;
+    border: 1.5px dashed var(--rule);
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Detail pages ---------- */
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--ff-note);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+  }
+  .crumbs a {
+    color: var(--ink);
+  }
+
+  .strip {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem 1.25rem;
+    scroll-snap-type: x mandatory;
+  }
+  .strip figure {
+    flex: 0 0 11.5rem;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+  .strip .frame {
+    padding: 0.35rem;
+  }
+  .strip .frame > img {
+    aspect-ratio: 9 / 19.5;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .disclosure {
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+  }
+  .disclosure summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+  .disclosure summary::-webkit-details-marker {
+    display: none;
+  }
+  .disclosure summary::after {
+    content: "+";
+    font-weight: 500;
+  }
+  .disclosure[open] summary::after {
+    content: "\2212";
+  }
+  .disclosure .disclosure-body {
+    padding: 0 1rem 1rem;
+    color: var(--ink-soft);
+  }
+
+  .sub-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .sub-card .frame > img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* ---------- Contact form ---------- */
+  .field label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+  }
+  .input {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--rule);
+    border-bottom: 1.5px solid var(--ink);
+    border-radius: 0;
+    background: var(--paper-raised);
+    color: var(--ink);
+    font: inherit;
+  }
+  .input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.75;
+  }
+  .input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+  }
+
+  .form-status {
+    min-height: 1.6em;
+    margin: 0;
+    font-weight: 500;
+  }
+  .form-status[data-state="error"] {
+    color: var(--accent);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

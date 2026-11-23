@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data engineering &amp; reporting | Houssam Saidi</title>
+    <meta
+      name="description"
+      content="Power BI reports and data engineering projects by Houssam Saidi."
+    />
+    <link rel="icon" href="./images/letter-h.png" type="image/png" />
+    <script src="./js/theme.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+      @theme inline {
+        --color-paper: var(--paper);
+        --color-raised: var(--paper-raised);
+        --color-ink: var(--ink);
+        --color-ink-soft: var(--ink-soft);
+        --color-rule: var(--rule);
+        --color-accent: var(--accent);
+        --font-sans: var(--ff-body);
+        --font-display: var(--ff-display);
+        --font-note: var(--ff-note);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <site-header></site-header>
+
+    <main id="main" class="sheet">
+      <nav class="crumbs pt-8" aria-label="Breadcrumb">
+        <a class="link" href="./index.html#work">Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Data engineering &amp; reporting</span>
+      </nav>
+
+      <header class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-14">
+        <div>
+          <h1 class="h-display">Data engineering &amp; reporting</h1>
+          <p class="lede mt-6">
+            Power BI reports and data engineering projects.
+          </p>
+        </div>
+        <dl class="title-block m-0">
+          <div>
+            <dt class="tb-label">Type</dt>
+            <dd class="m-0">Data engineering and reporting</dd>
+          </div>
+          <div>
+            <dt class="tb-label">Built with</dt>
+            <dd class="m-0">
+              <ul class="tag-list">
+                <li class="tag">Power BI</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <!-- Project groups: add a new <li> to a group's list for each new project. -->
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Power BI reports</h2>
+          <p class="lede">Interactive dashboards built in Power BI. Select a screenshot to open it full size.</p>
+        </header>
+        <ul class="clean-list grid gap-14">
+          <li class="grid gap-6 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-12">
+            <div class="grid content-start gap-2">
+              <h3 class="h-item">Pizza sales report</h3>
+              <p class="muted m-0">
+                A full year of pizza sales: busiest days and months, sales by
+                category and size, and the best and worst sellers.
+              </p>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <a class="frame block" href="./images/PizzaSales dashboard - 1.png" target="_blank" rel="noopener">
+                <img src="./images/PizzaSales dashboard - 1.png" alt="Pizza sales report, overview page" width="1373" height="767" loading="lazy" />
+              </a>
+              <a class="frame block" href="./images/PizzaSales dashboard - 2.png" target="_blank" rel="noopener">
+                <img src="./images/PizzaSales dashboard - 2.png" alt="Pizza sales report, best and worst sellers page" width="1373" height="768" loading="lazy" />
+              </a>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Data engineering</h2>
+          <p class="lede">Pipelines that collect, clean and prepare data for analysis.</p>
+        </header>
+        <ul class="clean-list grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Replace this placeholder with the first data engineering project. -->
+          <li class="placeholder-card">
+            <p class="h-item m-0">Coming soon</p>
+            <p class="m-0">Data engineering projects will be added here.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script src="./js/site.js"></script>
+  </body>
+</html>

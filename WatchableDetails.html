@@ -1,301 +1,164 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Watchable App</title>
+    <title>Watchable | Houssam Saidi</title>
+    <meta
+      name="description"
+      content="Watchable: a React Native app for discovering movies and TV shows and keeping track of what to watch."
+    />
     <link rel="icon" href="./images/letter-h.png" type="image/png" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-darkTheme: #11001f;
-        --font-family-outfit: "Outfit", sans-serif;
-        --font-family-ubuntu: "Ubuntu", sans-serif;
-        --animate-spin-slow: spin 6s linear infinite;
-        --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    </style>
+    <script src="./js/theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+      @theme inline {
+        --color-paper: var(--paper);
+        --color-raised: var(--paper-raised);
+        --color-ink: var(--ink);
+        --color-ink-soft: var(--ink-soft);
+        --color-rule: var(--rule);
+        --color-accent: var(--accent);
+        --font-sans: var(--ff-body);
+        --font-display: var(--ff-display);
+        --font-note: var(--ff-note);
+      }
+    </style>
   </head>
-  <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
-    <div
-      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:bg-black"
-    >
-      <img
-        src="./images/header-bg-color.png"
-        alt=""
-        class="w-full dark:bg-black"
-      />
-    </div>
-    <special-header></special-header>
-    <figure
-      class="text-center mx-auto flex flex-col items-center gap-2 mt-20 px-4"
-    >
-      <img
-        src="./images/W - MainMenu.jpeg"
-        alt="Watchable main screen"
-        class="max-w-xs w-full rounded-3xl"
-      />
-      <figcaption class="text-4xl font-semibold">Watchable</figcaption>
-      <figcaption>
-        <i>React Native Movie Buddy App</i>
-      </figcaption>
-    </figure>
-    <div class="container mx-auto max-w-7xl px-4 py-8">
-      <div class="relative w-full max-w-lg mx-auto">
-        <div class="relative w-full">
-          <ul
-            class="relative flex flex-wrap p-1.5 list-none rounded-md bg-slate-100"
-            data-tabs="tabs"
-            role="tablist"
-          >
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-white"
-                data-tab-target=""
-                role="tab"
-                aria-selected="true"
-                aria-controls="about"
-              >
-                <span class="ml-1">About</span>
-              </a>
-            </li>
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target=""
-                role="tab"
-                aria-selected="false"
-                aria-controls="features"
-              >
-                <span class="ml-1">Features</span>
-              </a>
-            </li>
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target=""
-                role="tab"
-                aria-selected="false"
-                aria-controls="screenshots"
-              >
-                <span class="ml-1">Screenshots</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <site-header></site-header>
 
-        <div data-tab-content="" class="p-5">
-          <div class="block opacity-100" id="about" role="tabpanel">
-            <div class="flex items-center gap-4 mb-5">
-              <img
-                src="./images/WatchableMainLogo.png"
-                alt="Watchable logo"
-                class="w-20 h-20 object-contain rounded-2xl border border-gray-200 bg-white p-2 shadow-sm flex-shrink-0"
-              />
-              <div>
-                <h3 class="font-bold text-xl font-ubuntu leading-tight">
-                  Watchable
-                </h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  React Native &middot; TMDB API
-                </p>
-                <span
-                  class="inline-block mt-1 text-xs px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full font-outfit"
-                  >Under development</span
-                >
-              </div>
-            </div>
-            <p class="text-sm text-gray-600 dark:text-gray-300 leading-6 mb-4">
-              Watchable was born from a personal need. A single place to
-              discover movies, check what's trending, and keep track of what to
-              watch next. What started as a personal tool became a full app when
-              I realised others face the same problem. It pulls live data from
-              the TMDB database and allows users to save movies/TV shows to
-              watch later in a list, plus, users can mark a movie or show as
-              watched and add there own personal comments. ALL locally, no
-              account needed.
+    <main id="main" class="sheet">
+      <nav class="crumbs pt-8" aria-label="Breadcrumb">
+        <a class="link" href="./index.html#work">Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Watchable</span>
+      </nav>
+
+      <header class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-14">
+        <div>
+          <span class="logo-tile mb-6 h-16 w-16">
+            <img class="max-h-12 max-w-12" src="./images/WatchableMainLogo.png" alt="Watchable logo" />
+          </span>
+          <h1 class="h-display">Watchable</h1>
+          <p class="lede mt-6">
+            A React Native app for discovering movies and TV shows and keeping
+            track of what to watch next.
+          </p>
+        </div>
+        <dl class="title-block m-0">
+          <div>
+            <dt class="tb-label">Type</dt>
+            <dd class="m-0">Mobile app</dd>
+          </div>
+          <div>
+            <dt class="tb-label">Built with</dt>
+            <dd class="m-0">
+              <ul class="tag-list">
+                <li class="tag">React Native</li>
+                <li class="tag">Expo Go</li>
+                <li class="tag">TMDB API</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt class="tb-label">Status</dt>
+            <dd class="m-0"><span class="status" data-state="dev">Prototype complete</span></dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Overview</h2>
+          <div class="body-copy">
+            <p>
+              Watchable started from a personal need: one place to discover
+              movies, check what's trending and keep track of what to watch
+              next. It became a full app when I realized other people have the
+              same problem.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >React Native</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >Expo Go</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >TMDB API</span
-              >
-            </div>
+            <p>
+              It pulls live data from the TMDB database. Users can save movies
+              and TV shows to a watch-later list, mark them as watched and add
+              their own comments. Everything is stored on the device, so no
+              account is needed.
+            </p>
           </div>
-          <div class="hidden opacity-0" id="features" role="tabpanel">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/interface.png"
-                  alt="Multiple pages"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Multiple pages</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/bookmark.png"
-                  alt="Watch Later list"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Save to Watch Later</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/MovieSearch.png"
-                  alt="Search"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Search movies &amp; TV shows</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/api.png"
-                  alt="TMDB API"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Live data from TMDB</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/thumbs-up.png"
-                  alt="Mark as watched"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Mark watched + comments</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/Notify.png"
-                  alt="Notifications"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Set release notifications</i>
-                </figcaption>
-              </div>
-            </div>
-          </div>
-          <div class="hidden opacity-0" id="screenshots" role="tabpanel">
-            <div
-              class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth"
-            >
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - MainMenu.jpeg"
-                  alt="Main Menu"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Main Menu
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - SearchPage.jpeg"
-                  alt="Search screen"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Search
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - MovieDetail1.jpeg"
-                  alt="Movie Details 1"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Movie Details (1)
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - MovieDetail2.jpeg"
-                  alt="Movie Details 2"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Movie Details (2)
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - WatchLater.jpeg"
-                  alt="Watch Later list"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Watch Later
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/W - Watched.jpeg"
-                  alt="Watched list"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Watched List
-                </figcaption>
-              </figure>
-            </div>
-          </div>
+        </header>
+
+        <div class="ruled-grid sm:grid-cols-2 lg:grid-cols-3">
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Multiple pages</h3>
+            <p class="muted m-0">Separate screens for browsing, searching, title details and your lists.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Watch later</h3>
+            <p class="muted m-0">Save movies and TV shows to a list for later.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Search</h3>
+            <p class="muted m-0">Find any movie or TV show by name.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Live data from TMDB</h3>
+            <p class="muted m-0">Titles, details and trending lists come straight from the TMDB database.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Watched list and comments</h3>
+            <p class="muted m-0">Mark titles as watched and add your own comments.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Release notifications</h3>
+            <p class="muted m-0">Get notified when an upcoming title is released.</p>
+          </article>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <special-footer></special-footer>
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Screenshots</h2>
+          <p class="lede">Scroll sideways to see each screen.</p>
+        </header>
+        <div class="strip" tabindex="0" aria-label="Watchable screenshots">
+          <figure>
+            <div class="frame"><img src="./images/W - MainMenu.jpeg" alt="Watchable main menu" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 1</b>Main menu</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/W - SearchPage.jpeg" alt="Search screen" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 2</b>Search</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/W - MovieDetail1.jpeg" alt="Movie details, top of the screen" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 3</b>Movie details</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/W - MovieDetail2.jpeg" alt="Movie details, further down the screen" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 4</b>Movie details, continued</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/W - WatchLater.jpeg" alt="Watch-later list" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 5</b>Watch later</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/W - Watched.jpeg" alt="Watched list" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 6</b>Watched list</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
 
-    <script src="./headerFooterManager.js"></script>
+    <site-footer></site-footer>
+    <script src="./js/site.js"></script>
   </body>
 </html>

@@ -1,280 +1,165 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Ya Zalame Drive!</title>
+    <title>Ya Zalame Drive! | Houssam Saidi</title>
+    <meta
+      name="description"
+      content="Ya Zalame Drive!: an endless driving game for Android, built in Unity with C# and available on Google Play."
+    />
     <link rel="icon" href="./images/letter-h.png" type="image/png" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-darkTheme: #11001f;
-        --font-family-outfit: "Outfit", sans-serif;
-        --font-family-ubuntu: "Ubuntu", sans-serif;
-        --animate-spin-slow: spin 6s linear infinite;
-        --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    </style>
+    <script src="./js/theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+      @theme inline {
+        --color-paper: var(--paper);
+        --color-raised: var(--paper-raised);
+        --color-ink: var(--ink);
+        --color-ink-soft: var(--ink-soft);
+        --color-rule: var(--rule);
+        --color-accent: var(--accent);
+        --font-sans: var(--ff-body);
+        --font-display: var(--ff-display);
+        --font-note: var(--ff-note);
+      }
+    </style>
   </head>
-  <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
-    <div
-      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:bg-black"
-    >
-      <img
-        src="./images/header-bg-color.png"
-        alt=""
-        class="w-full dark:bg-black"
-      />
-    </div>
-    <special-header></special-header>
-    <figure
-      class="text-center mx-auto flex flex-col items-center gap-2 mt-20 px-4"
-    >
-      <img
-        src="./images/phone2.png"
-        alt="Ya Zalame Drive! game screenshot"
-        class="max-w-3xl w-full rounded-3xl"
-      />
-      <figcaption class="text-4xl font-semibold">"Ya Zalame Drive!"</figcaption>
-      <figcaption><i>Unity Game (available on the Play Store)</i></figcaption>
-      <figcaption><i>Link:</i></figcaption>
-    </figure>
-    <div class="container mx-auto max-w-7xl px-4 py-8">
-      <div class="relative w-full max-w-lg mx-auto">
-        <div class="relative w-full">
-          <ul
-            class="relative flex flex-wrap p-1.5 list-none rounded-md bg-slate-100"
-            data-tabs="tabs"
-            role="tablist"
-          >
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-white"
-                data-tab-target=""
-                role="tab"
-                aria-selected="true"
-                aria-controls="about"
-              >
-                <span class="ml-1">About</span>
-              </a>
-            </li>
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target=""
-                role="tab"
-                aria-selected="false"
-                aria-controls="features"
-              >
-                <span class="ml-1">Features</span>
-              </a>
-            </li>
-            <li class="flex-auto text-center">
-              <a
-                class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target=""
-                role="tab"
-                aria-selected="false"
-                aria-controls="screenshots"
-              >
-                <span class="ml-1">Screenshots</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <site-header></site-header>
 
-        <div data-tab-content="" class="p-5">
-          <div class="block opacity-100" id="about" role="tabpanel">
-            <div class="flex items-center gap-4 mb-5">
-              <img
-                src="./images/GameLogo.png"
-                alt="Ya Zalame Drive! logo"
-                class="w-20 h-20 object-contain rounded-2xl border border-gray-200 bg-white p-2 shadow-sm flex-shrink-0"
-              />
-              <div>
-                <h3 class="font-bold text-xl font-ubuntu leading-tight">
-                  "Ya Zalame Drive!"
-                </h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  Unity &middot; Android &middot; Google AdMob
-                </p>
-                <span
-                  class="inline-block mt-1 text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full font-outfit"
-                  >Available on Play Store</span
-                >
-              </div>
-            </div>
-            <p class="text-sm text-gray-600 dark:text-gray-300 leading-6 mb-4">
-              An endless car game set on the chaotic Lebanese roads: Dodge
-              obstacles, collect coins, and survive as long as you can. Built in
-              Unity with C#, the game features multiple difficulty levels, an
-              in-game car shop, achievements, a non-copyrighted radio system,
-              and monetisation through Google AdMob and Unity Ads.
+    <main id="main" class="sheet">
+      <nav class="crumbs pt-8" aria-label="Breadcrumb">
+        <a class="link" href="./index.html#work">Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Ya Zalame Drive!</span>
+      </nav>
+
+      <header class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-14">
+        <div>
+          <span class="logo-tile mb-6 h-16 w-16">
+            <img class="max-h-12 max-w-12" src="./images/GameLogo.png" alt="Ya Zalame Drive! logo" />
+          </span>
+          <h1 class="h-display">Ya Zalame Drive!</h1>
+          <p class="lede mt-6">
+            An endless driving game for Android, set on the chaotic roads of
+            Lebanon.
+          </p>
+        </div>
+        <dl class="title-block m-0">
+          <div>
+            <dt class="tb-label">Type</dt>
+            <dd class="m-0">Mobile game</dd>
+          </div>
+          <div>
+            <dt class="tb-label">Built with</dt>
+            <dd class="m-0">
+              <ul class="tag-list">
+                <li class="tag">Unity</li>
+                <li class="tag">C#</li>
+                <li class="tag">Android</li>
+                <li class="tag">Google AdMob</li>
+                <li class="tag">Unity Ads</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt class="tb-label">Status</dt>
+            <dd class="m-0">
+              <span class="status" data-state="live">Available on Google Play</span>
+              <!-- Add the store link here once it's ready, for example:
+              <a class="link mt-1 block" href="https://play.google.com/store/apps/details?id=YOUR.APP.ID" target="_blank" rel="noopener">Get it on Google Play</a>
+              -->
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <figure class="m-0 pb-14">
+        <div class="frame frame-marked">
+          <img src="./images/phone2.png" alt="Ya Zalame Drive! running on a phone" />
+        </div>
+        <figcaption class="caption"><b>Fig. 1</b>Ya Zalame Drive! on Android</figcaption>
+      </figure>
+
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Overview</h2>
+          <div class="body-copy">
+            <p>
+              Dodge obstacles, collect coins and survive as long as you can.
+              I built the game in Unity with C#. It has multiple difficulty
+              levels, an in-game car shop, achievements and a radio with
+              copyright-free music, and it earns revenue through Google AdMob
+              and Unity Ads.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >Unity</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >C#</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >Android</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >Google AdMob</span
-              >
-              <span
-                class="px-3 py-1 text-xs bg-[#fcf4ff] border border-purple-200 text-purple-700 rounded-full font-outfit"
-                >Unity Ads</span
-              >
-            </div>
           </div>
-          <div class="hidden opacity-0" id="features" role="tabpanel">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/levels.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Multiple levels</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/achievement.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Achievements</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 border object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/radio.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Radio music (not copyrighted)</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/shop.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i
-                    >Car shop. Players can collect and spend coins to buy
-                    cars</i
-                  >
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/scorecard.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Tracks highscore and last score</i>
-                </figcaption>
-              </div>
-              <div>
-                <img
-                  class="w-80 object-cover rounded-lg border-4 border-gray-500/50"
-                  src="./images/ads.png"
-                  alt="image-photo"
-                />
-                <figcaption class="text-center text-sm mt-2">
-                  <i>Google Admob and Unity ads are implemented</i>
-                </figcaption>
-              </div>
-            </div>
-          </div>
-          <div class="hidden opacity-0" id="screenshots" role="tabpanel">
-            <div
-              class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth"
-            >
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/YZD - MainMenu.jpeg"
-                  alt="Main Menu"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Main Menu
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/YZD - Gameplay.jpeg"
-                  alt="Gameplay"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Gameplay
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/YZD - GameOver.jpeg"
-                  alt="Game Over Screen"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Game Over
-                </figcaption>
-              </figure>
-              <figure
-                class="flex-shrink-0 w-44 flex flex-col gap-1.5 snap-start"
-              >
-                <img
-                  class="w-full aspect-[9/19] object-cover object-top rounded-2xl border border-gray-200 shadow-md"
-                  src="images/YZD - Shop.jpeg"
-                  alt="Car Shop"
-                />
-                <figcaption
-                  class="text-xs text-center text-gray-500 dark:text-gray-400 font-outfit"
-                >
-                  Car Shop
-                </figcaption>
-              </figure>
-            </div>
-          </div>
+        </header>
+
+        <div class="ruled-grid sm:grid-cols-2 lg:grid-cols-3">
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Difficulty levels</h3>
+            <p class="muted m-0">Several levels, each harder than the last.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Achievements</h3>
+            <p class="muted m-0">Goals to unlock as you play.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Radio</h3>
+            <p class="muted m-0">An in-game radio that plays copyright-free music.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Car shop</h3>
+            <p class="muted m-0">Collect coins on the road and spend them on new cars.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Score tracking</h3>
+            <p class="muted m-0">Keeps your high score and your last score.</p>
+          </article>
+          <article class="grid content-start gap-2">
+            <h3 class="h-item">Ads</h3>
+            <p class="muted m-0">Google AdMob and Unity Ads are both integrated.</p>
+          </article>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <special-footer></special-footer>
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Screenshots</h2>
+          <p class="lede">Scroll sideways to see each screen.</p>
+        </header>
+        <div class="strip" tabindex="0" aria-label="Ya Zalame Drive! screenshots">
+          <figure>
+            <div class="frame"><img src="./images/YZD - MainMenu.jpeg" alt="Main menu" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 2</b>Main menu</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/YZD - GamePlay.jpeg" alt="Gameplay on the road" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 3</b>Gameplay</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/YZD - GameOver.jpeg" alt="Game over screen with scores" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 4</b>Game over</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="./images/YZD - Shop.jpeg" alt="Car shop" loading="lazy" /></div>
+            <figcaption class="caption"><b>Fig. 5</b>Car shop</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
 
-    <script src="./headerFooterManager.js"></script>
+    <site-footer></site-footer>
+    <script src="./js/site.js"></script>
   </body>
 </html>

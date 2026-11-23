@@ -1,164 +1,159 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - ELibrary</title>
+    <title>ELibrary | Houssam Saidi</title>
+    <meta
+      name="description"
+      content="ELibrary: a full-stack online library built with ASP.NET MVC, C# and Microsoft SQL Server."
+    />
     <link rel="icon" href="./images/letter-h.png" type="image/png" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-darkTheme: #11001f;
-        --font-family-outfit: "Outfit", sans-serif;
-        --font-family-ubuntu: "Ubuntu", sans-serif;
-        --animate-spin-slow: spin 6s linear infinite;
-        --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    </style>
+    <script src="./js/theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+      @theme inline {
+        --color-paper: var(--paper);
+        --color-raised: var(--paper-raised);
+        --color-ink: var(--ink);
+        --color-ink-soft: var(--ink-soft);
+        --color-rule: var(--rule);
+        --color-accent: var(--accent);
+        --font-sans: var(--ff-body);
+        --font-display: var(--ff-display);
+        --font-note: var(--ff-note);
+      }
+    </style>
   </head>
-  <body class="overflow-x-hidden font-ubuntu leading-8 dark:bg-darkTheme">
-    <div
-      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:bg-black"
-    >
-      <img
-        src="./images/header-bg-color.png"
-        alt=""
-        class="w-full dark:bg-black"
-      />
-    </div>
-    <special-header></special-header>
-    <div
-      class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
-    >
-      <img
-        src="./images/Elibrary_sample.jpg"
-        alt="Library image"
-        class="w-150 rounded-3xl 2xl:w-250 mt-50"
-      />
-      <h1
-        class="text-3xl flex items-end sm:text-6xl lg:text-[66px] font-ubuntu"
-      >
-        ELibrary
-      </h1>
-      <img src="./images/elibraryIcon.png" alt="" class="w-40 mt-5" />
-    </div>
-    <div>
-      <video
-        class="border rounded-3xl w-full max-w-4xl mx-auto aspect-video"
-        controls
-      >
-        <source src="./images/Elibrary(fullDemo).mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div class="grid place-items-center">
-        <h1 class="font-semibold mb-20"><i>ELibrary Project Full Demo</i></h1>
-        <div class="p-6 sm:p-10 mx-auto text-center w-full max-w-3xl">
-          <h4 class="text-lg sm:text-xl font-semibold mb-4">
-            What is the project about?
-          </h4>
-          <p class="text-base sm:text-lg text-gray-700 px-4 sm:px-0">
-            An online collection of digital information resources, such as
-            e-books, journals, and multimedia content, accessible via the
-            internet. It provides a convenient, location-independent platform
-            for users to access, search, and retrieve information, saving space
-            and costs associated with physical collections.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="w-full px-[12%] py-10">
-      <h2 class="text-center text-5xl font-ubuntu">Project Details</h2>
-      <p class="mx-auto mt-5 mb-12 font-ubuntu text-center text-gray-700">
-        After watching the full demo above, the following blocks will explain
-        the features that this system implements.
-      </p>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <site-header></site-header>
 
-      <div class="grid grid-rows-1 md:grid-rows-2 lg:grid-cols-2 gap-6">
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500"
-        >
-          <img src="./images/ux.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700">Web Design</h3>
-          <p class="text-sm text-gray-600 leading-5">
-            Using <b>ASP.NET</b>, I developed the website with functional and
-            dynamic front-end and back-end.supports cross-platform development.
-            This provides flexibility in deployment and development
-            environments.The use of C#, a modern and versatile language, along
-            with features like Master Pages and server controls, simplifies
-            development and promotes code reusability. I used the
-            <b>MVC (Model-View-Controller)</b>
-            pattern because it promotes a separation of concerns, making code
-            more organized, maintainable, and scalable.
+    <main id="main" class="sheet">
+      <nav class="crumbs pt-8" aria-label="Breadcrumb">
+        <a class="link" href="./index.html#work">Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">ELibrary</span>
+      </nav>
+
+      <header class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-14">
+        <div>
+          <h1 class="h-display">ELibrary</h1>
+          <p class="lede mt-6">
+            A full-stack online library with user accounts, book borrowing and
+            admin tools, built with ASP.NET MVC and Microsoft SQL Server.
           </p>
         </div>
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500"
-        >
-          <img src="./images/web-design.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700">Styling</h3>
-          <p class="text-sm text-gray-600 leading-5">
-            To give the website the porfessional look, I used <b>Bootstrap</b>.
-            A popular front-end framework used in web development providing
-            pre-built components (e.g., navigation bars, buttons, forms, cards)
-            and a robust grid system, significantly reducing the amount of
-            manual CSS and HTML coding required. This allows developers to build
-            functional and aesthetically pleasing interfaces more quickly.
-          </p>
-          <p class="text-sm text-gray-600 leading-5 mt-5">
-            In addition to giving the website a polished appearance,
-            <b>Bootstrap</b>
-            was utilized to display the user's logged-in name, making it feel
-            more personalized.
-          </p>
-        </div>
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 sm:col-span-2"
-        >
-          <img src="./images/database.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700">Database</h3>
-          <p class="text-sm text-gray-600 leading-5">
-            Since it's an E-Library website, it needs to store plenty of
-            information, such as: users accounts, the books and ebooks that will
-            be downloaded or borrowed...So I chose to use <b>MSSQL DB</b> for
-            its robust, enterprise-grade features, deep integration with the
-            Microsoft ecosystem, powerful tools for business intelligence and
-            analytics, and strong security and high availability for
-            mission-critical workloads.
-          </p>
-          <ul class="text-sm text-gray-600 leading-5 mt-5">
-            <li>
-              - I implemented <b>CRUD</b> operations to add users and books.
-            </li>
-            <li>
-              - The website can identify admins and normal users. the admins
-              have additional tasks available:
-              <ul>
-                <li>1) adding books and users to the database</li>
-                <li>2) update the status of the borrowed book</li>
-                <li>3) update the status of a user</li>
-                <li>
-                  4) add authors to the database so that the users can search
-                  for books per author name
-                </li>
+        <dl class="title-block m-0">
+          <div>
+            <dt class="tb-label">Type</dt>
+            <dd class="m-0">Web application</dd>
+          </div>
+          <div>
+            <dt class="tb-label">Built with</dt>
+            <dd class="m-0">
+              <ul class="tag-list">
+                <li class="tag">ASP.NET MVC</li>
+                <li class="tag">C#</li>
+                <li class="tag">Bootstrap</li>
+                <li class="tag">SQL Server</li>
               </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <special-footer></special-footer>
+            </dd>
+          </div>
+        </dl>
+      </header>
 
-    <script src="./headerFooterManager.js"></script>
+      <figure class="m-0 pb-14">
+        <div class="frame frame-marked">
+          <video controls preload="metadata" poster="./images/Elibrary_sample.jpg" class="aspect-video bg-black">
+            <source src="./images/Elibrary(fullDemo).mp4" type="video/mp4" />
+            Your browser can't play this video.
+          </video>
+        </div>
+        <figcaption class="caption"><b>Fig. 1</b>Full demo of ELibrary</figcaption>
+      </figure>
+
+      <section class="section">
+        <header class="section-head">
+          <h2 class="h-section">Overview</h2>
+          <div class="body-copy">
+            <p>
+              ELibrary is an online collection of digital resources, such as
+              e-books, journals and multimedia content. Users can access,
+              search and borrow from it wherever they are, without the space
+              and cost of a physical collection.
+            </p>
+            <p class="muted">
+              The sections below explain the main parts of the system shown in
+              the demo.
+            </p>
+          </div>
+        </header>
+
+        <div class="ruled-grid md:grid-cols-2">
+          <article class="grid content-start gap-3">
+            <h3 class="h-item">Architecture</h3>
+            <p class="muted m-0">
+              I built the site with <strong class="text-ink">ASP.NET</strong>
+              and C#, with a dynamic front end and back end. I used the
+              <strong class="text-ink">Model-View-Controller (MVC)</strong>
+              pattern because it separates data, logic and interface, which
+              keeps the code organized, maintainable and scalable. ASP.NET's
+              cross-platform support keeps deployment flexible, and features
+              like master pages and server controls make components reusable.
+            </p>
+          </article>
+          <article class="grid content-start gap-3">
+            <h3 class="h-item">Interface</h3>
+            <p class="muted m-0">
+              I styled the site with <strong class="text-ink">Bootstrap</strong>
+              for a professional look. Its ready-made components (navigation
+              bars, buttons, forms and cards) and grid system mean far less
+              hand-written HTML and CSS.
+            </p>
+            <p class="muted m-0">
+              Bootstrap also displays the signed-in user's name, so the site
+              feels more personal.
+            </p>
+          </article>
+          <article class="grid content-start gap-3">
+            <h3 class="h-item">Database</h3>
+            <p class="muted m-0">
+              An e-library stores a lot of information: user accounts, books,
+              and the e-books people download or borrow. I chose
+              <strong class="text-ink">Microsoft SQL Server</strong> for its
+              enterprise-grade reliability, deep integration with the
+              Microsoft ecosystem, business intelligence and analytics tools,
+              and strong security and availability.
+            </p>
+          </article>
+          <article class="grid content-start gap-3">
+            <h3 class="h-item">Users and admins</h3>
+            <p class="muted m-0">
+              The site implements full <strong class="text-ink">CRUD</strong>
+              operations and tells admins apart from regular users. Admins can
+              also:
+            </p>
+            <ul class="muted m-0 grid list-disc gap-1 pl-5">
+              <li>Add books and users to the database</li>
+              <li>Update the status of a borrowed book</li>
+              <li>Update the status of a user</li>
+              <li>Add authors, so users can search for books by author</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script src="./js/site.js"></script>
   </body>
 </html>
